@@ -2,9 +2,7 @@
 
 #include <cuda_runtime.h>
 #include <math_constants.h>
-#include <math_functions.h>
-
-#include "../include/grff_constants.h"
+#include "grff_constants.h"
 #include "grff_tables.cuh"
 
 // Plasma constants from GRFF/source/Plasma.h

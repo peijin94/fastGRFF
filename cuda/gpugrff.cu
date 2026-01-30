@@ -1,7 +1,7 @@
 #include <cuda_runtime.h>
 #include <math_constants.h>
 
-#include "../include/grff_constants.h"
+#include "grff_constants.h"
 #include "grff_device.cuh"
 
 struct Voxel

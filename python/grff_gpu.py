@@ -2,7 +2,10 @@ import pathlib
 import cupy as cp
 
 HERE = pathlib.Path(__file__).resolve().parent
-CUDA_SRC = (HERE / ".." / "cuda" / "gpugrff.cu").resolve()
+ROOT = (HERE / "..").resolve()
+CUDA_SRC = (ROOT / "cuda" / "gpugrff.cu").resolve()
+INCLUDE_DIR = (ROOT / "include").resolve()
+CUDA_DIR = (ROOT / "cuda").resolve()
 
 
 _module = None
@@ -12,7 +15,11 @@ def _build_module():
     code = CUDA_SRC.read_text(encoding="utf-8")
     return cp.RawModule(
         code=code,
-        options=("--std=c++17",),
+        options=(
+            "--std=c++17",
+            f"-I{INCLUDE_DIR}",
+            f"-I{CUDA_DIR}",
+        ),
         name_expressions=("get_mw_kernel", "get_mw_slice_kernel"),
     )
 
