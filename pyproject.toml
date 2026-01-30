@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastGRFF"
+version = "0.1.0"
+description = "CUDA/CuPy GRFF port"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Peijin Zhang", email = "pz47@njit.edu"}]
+urls = {homepage = "https://pjzhang.cc"}
+dependencies = ["cupy"]
+
+[tool.setuptools]
+packages = ["fastGRFF"]
+
+[tool.setuptools.package-data]
+fastGRFF = ["../cuda/*.cu", "../cuda/*.cuh", "../include/*.h"]
